@@ -1,7 +1,7 @@
 /*
-* Recodado por Lucas R.
+* Recodado por Bastos
 * Legião Z é o melhor, to famoso pessoal!
-* Reprodução autorizada MAS sem remover os creditos do criador deste BOT!
+* Criador: Lucas, KillovSky
 */
 
 // MODULOS
@@ -1032,7 +1032,7 @@ module.exports = kconfig = async (kill, message) => {
 			break
 			
 			
-        case 'quote':
+        case 'criarfrase':
 			if (mute || pvmte) return console.log('Ignorando comando [Silence]')
 		    arks = body.trim().split(/ +/).slice(1)
             ark = body.trim().substring(body.indexOf(' ') + 1)
@@ -1283,7 +1283,6 @@ module.exports = kconfig = async (kill, message) => {
         case 'welcome':
 			if (mute || pvmte) return console.log('Ignorando comando [Silence]')
 			if (!isGroupMsg) return kill.reply(from, mess.error.Gp, id)
-			if (!isOwner) return kill.reply(from, mess.error.Kl, id)
             if (args.length !== 1) return kill.reply(from, 'Você esqueceu de colocar se quer ativado [on], ou desativado [off].', id)
 			if (args[0] == 'on') {
                 welkom.push(chat.id)
@@ -1788,11 +1787,11 @@ module.exports = kconfig = async (kill, message) => {
 			break
 			
 			
-        case 'ownergroup':
+        case 'dona':
 			if (mute || pvmte) return console.log('Ignorando comando [Silence]')
             if (!isGroupMsg) return kill.reply(from, mess.error.Gp, id)
             const Owner_ = chat.groupMetadata.owner
-            await kill.sendTextWithMentions(from, `@${Owner_} foi quem criou esse cabaré.`)
+            await kill.sendTextWithMentions(from, `@${Owner_} foi quem criou esse grupo.`)
             break
 			
 
@@ -2097,14 +2096,14 @@ module.exports = kconfig = async (kill, message) => {
 				if (quotedMsg) {
 					const negquo = quotedMsgObj.sender.id
 					if (chief.includes(negquo)) return kill.reply(from, 'Sabemos o quão bebado(a) ele(a) é, mas não dá pra expulsar a pessoa que criou o cabaré.', id)
-					await kill.sendTextWithMentions(from, `Expulsando bebado(a) @${negquo} do cabaré...`)
+					await kill.sendTextWithMentions(from, `Expulsando usuário(a) @${negquo} do grupo...`)
 					await kill.removeParticipant(groupId, negquo)
 				} else {
 					if (mentionedJidList.length == 0) return kill.reply(from, 'Você digitou o comando de forma muito errada, arrume e envie certo.', id)
-					await kill.sendTextWithMentions(from, `Expulsando bebado(a) ${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')} do cabaré...`)
+					await kill.sendTextWithMentions(from, `Expulsando usuário(a) ${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')} do grupo...`)
 					for (let i = 0; i < mentionedJidList.length; i++) {
 						if (chief.includes(mentionedJidList[i])) return kill.reply(from, 'Sabemos o quão bebado(a) ele(a) é, mas não dá pra expulsar a pessoa que criou o cabaré.', id)
-						if (ownerNumber.includes(mentionedJidList[i])) return kill.reply(from, 'Infelizmente, ele é um bebado VIP, não posso expulsar.', id)
+						if (ownerNumber.includes(mentionedJidList[i])) return kill.reply(from, 'Infelizmente, ele é um VIP, não posso expulsar.', id)
 						if (groupAdmins.includes(mentionedJidList[i])) return kill.reply(from, mess.error.Kl, id)
 						await kill.removeParticipant(groupId, mentionedJidList[i])
 					}
