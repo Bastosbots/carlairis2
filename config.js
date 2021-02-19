@@ -685,12 +685,12 @@ module.exports = kconfig = async (kill, message) => {
             break
 
 
-        case 'make':
+        case 'diario':
 			if (mute || pvmte) return console.log('Ignorando comando [Silence]')
             if (args.length == 0) return kill.reply(from, `Você precisa inserir uma frase após o comando.`, id)
             const nulisq = body.slice(6)
             const nulisp = await tulis(nulisq)
-            await kill.sendImage(from, `${nulisp}`, '', 'Belo diário este seu em amigo...', id)
+            await kill.sendImage(from, `${nulisp}`, '', 'Mas que bela página essa...', id)
             .catch(() => {
                 kill.reply(from, 'Que peninha, a imagem não quis enviar ou o servidor negou o acesso...', id)
             })
@@ -1135,7 +1135,7 @@ module.exports = kconfig = async (kill, message) => {
 			break
 			
 			
-        case 'trecho':
+        case 'frases':
 			if (mute || pvmte) return console.log('Ignorando comando [Silence]')
 			const rcit = fs.readFileSync('./lib/config/frases.txt').toString().split('\n')
 			const racon = rcit[Math.floor(Math.random() * rcit.length)]
@@ -2321,7 +2321,6 @@ module.exports = kconfig = async (kill, message) => {
         case 'exclusive':
 			if (mute || pvmte) return console.log('Ignorando comando [Silence]')
             if (!isGroupMsg) return kill.reply(from, mess.error.Gp, id)
-			if (!isOwner) return kill.reply(from, 'Esse comando é apenas para meu criador', id)
             if (args.length !== 1) return kill.reply(from, 'Defina entre on e off!', id)
 			if (args[0] == 'on') {
                 exsv.push(chatId)
