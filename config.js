@@ -3185,7 +3185,7 @@ module.exports = kconfig = async (kill, message) => {
 			const timed = moment(t * 1000).format('DD/MM/YY HH:mm:ss')
 			const allin = `Olá usuário "@${sender.id}"!\n\nLevei ${processTime(t, moment())} segundos para te responder.\n\nAgora são exatas "${timed}".\nAbaixo estão minhas funções.\n`
             kill.sendTextWithMentions(from, allin + help, id)
-            kill.reply(from, `De outros comandos temos...\n\n*${prefix}Admins* _é para administradores._\n\n*${prefix}Kill* _é apenas para meu dono._\n\n*${prefix}Adult* _é o menu de comandos adultos._\n\n*${prefix}Down* _é o menu de download de músicas e videos._`, id)
+            kill.reply(from, `De outros comandos temos...\n\n*${prefix}Admins* _é para administradores._\n\n*${prefix}Kill* _é apenas para meu dono._\n\n*${prefix}Adult* _é o menu de comandos adultos._\n\n*${prefix}Down* _é o menu de download de músicas e videos, aproveite._`, id)
             break
 
 
